@@ -2,51 +2,48 @@ package com.stackroute.domain;
 import org.springframework.context.annotation.Bean;
 public class BeanConfig {
 
-  Actor actor1,actor2,actor3;
+  @Bean(name = "actor")
+  public Actor getActor(){
 
-  @Bean(name = "actor1")
+    Actor actor = new Actor();
+    actor.setName("KEER");
+    actor.setGender("female");
+    actor.setAge(10);
+
+    return actor;
+  }
+  @Bean(name = "actor2")
   public Actor getActor1(){
 
-    actor1 = new Actor("keer","female",22);
-    return actor1;
-  }
+    Actor actor2 = new Actor();
+    actor2.setName("KEER");
+    actor2.setGender("female");
+    actor2.setAge(10);
 
-  @Bean(name = "actor2")
+    return actor2;
+  }
+  @Bean(name = "actor3")
   public Actor getActor2(){
 
-    actor2 = new Actor("akhi","male",24);
-    return actor1;
+    Actor actor3 = new Actor();
+    actor3.setName("KEER");
+    actor3.setGender("female");
+    actor3.setAge(10);
+
+    return actor3;
   }
-
-  @Bean(name = "actor3")
-  public Actor getActor3(){
-
-    actor3 = new Actor("sruthi","female",25);
-    return actor1;
-  }
-
 
   @Bean(name = "movie1")
-  public Movie getMovie1(){
-    Movie movie1 = new Movie();
+  public Movie getMovie(){
+    Movie movie = new Movie();
 
-    movie1.setActor1(actor1);
-    movie1.setActor2(actor2);
-    movie1.setActor3(actor3);
-
-    return movie1;
+    return movie;
   }
-
   @Bean(name = "movie2")
-  public Movie getMovie2(){
+  public Movie movie(){
     Movie movie2 = new Movie();
-
-    movie2.setActor1(actor1);
-    movie2.setActor2(actor2);
-    movie2.setActor3(actor3);
 
     return movie2;
   }
-
 
 }

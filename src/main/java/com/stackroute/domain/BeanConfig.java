@@ -1,49 +1,40 @@
 package com.stackroute.domain;
+
+
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+@Configuration
+@ComponentScan(basePackages = "com.stackroute.domain")
 public class BeanConfig {
-
-  @Bean(name = "actor")
-  public Actor getActor(){
-
-    Actor actor = new Actor();
-    actor.setName("KEER");
-    actor.setGender("female");
-    actor.setAge(10);
+  @Bean
+  public Actor actor() {
+    Actor actor = new Actor("abcd", "female", 23);
 
     return actor;
   }
-  @Bean(name = "actor2")
-  public Actor getActor1(){
 
-    Actor actor2 = new Actor();
-    actor2.setName("KEER");
-    actor2.setGender("female");
-    actor2.setAge(10);
+  @Bean
+  public Actor actor2() {
+    Actor actor2 = new Actor("keer", "female", 22);
 
     return actor2;
   }
-  @Bean(name = "actor3")
-  public Actor getActor2(){
 
-    Actor actor3 = new Actor();
-    actor3.setName("KEER");
-    actor3.setGender("female");
-    actor3.setAge(10);
+  @Bean
+  public Actor actor3() {
+    Actor actor3 = new Actor("akhi", "male", 24);
 
     return actor3;
+
   }
 
-  @Bean(name = "movie1")
-  public Movie getMovie(){
-    Movie movie = new Movie();
-
-    return movie;
-  }
-  @Bean(name = "movie2")
-  public Movie movie(){
-    Movie movie2 = new Movie();
-
-    return movie2;
+  @Bean
+  public BeanPostProcessorDemoBean beanPostProcessorDemoBean() {
+    BeanPostProcessorDemoBean beanPostProcessorDemoBean=new BeanPostProcessorDemoBean();
+    return beanPostProcessorDemoBean;
   }
 
 }
